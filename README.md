@@ -1,4 +1,4 @@
 # shorthack
-project from barebuh team
+meow meowwwwww
 
 hello world
