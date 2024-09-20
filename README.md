@@ -1,4 +1,4 @@
 # shorthack
-project from arbuz team
+project from barebuh team
 
 hello world
