@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: buznotes-app
+    restart: always
+    volumes:
+      - .:/app
+    expose:
+      - "5000"
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    container_name: buznotes-nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
