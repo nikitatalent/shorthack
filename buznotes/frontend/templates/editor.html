@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор - BuzNotes</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/app.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Редактор заметок</h1>
+        <textarea id="text_input" rows="10" cols="50" placeholder="Введите ваш текст..."></textarea>
+        <input type="hidden" id="user_id" value="{{ session['user_id'] }}">
+        <button class="btn" onclick="translateText()">Перевести</button>
+        <button class="btn" onclick="saveNote()">Сохранить заметку</button>
+        <p id="translated_text"></p>
+        <a href="/notes" class="btn">Мои заметки</a>
+    </div>
+</body>
+</html>

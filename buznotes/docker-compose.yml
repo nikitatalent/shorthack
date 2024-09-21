@@ -1,0 +1,8 @@
+services:
+  buznotes:
+    build: .
+    command: gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 app:app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"

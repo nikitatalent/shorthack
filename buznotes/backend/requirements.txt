@@ -1,0 +1,10 @@
+flask
+gunicorn
+uvicorn
+fastapi
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+FastAPI==0.65.1
+Werkzeug==2.0.3  # или другую подходящую версию
+googletrans==4.0.0-rc1
+SQLAlchemy==1.4.47 
