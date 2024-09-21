@@ -3,6 +3,7 @@ from sqlalchemy import text
 
 
 class WebDB:
+
     def __init__(self):
         # Создаем асинхронный движок
         self.engine = create_async_engine("sqlite+aiosqlite:///arbuz.db")
@@ -27,14 +28,16 @@ class WebDB:
             await session.execute(command, {"login": login, "password": password, "language": language})
             await session.commit()
 
-    async def get_user(self, user_id):
+    async def get_user(self, login):
         async with self.new_session() as session:
             command = text(
-                "SELECT `login`, `password`, `language` FROM `users` WHERE `id`=:id"
+                "SELECT `id`, `password`, `language`, `info` FROM `users` WHERE `login`=:login"
             )
-            result = await session.execute(command, {"id": user_id})
+            result = await session.execute(command, {"login": login})
             return result
 
+    async def close(self):
+        await self.engine.dispose()
 
 
 

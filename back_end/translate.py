@@ -1,8 +1,11 @@
 import asyncio
 from aiogoogletrans import Translator
+from database import WebDB
+
 
 translator = Translator()
-base_lang = 'es'
+web = WebDB()
+base_lang = web.getuser()
 
 
 async def translator_translate(word):
